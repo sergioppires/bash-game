@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Notifications.Android
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Notifications.iOS", "Unity.Notifications.iOS.csproj", "{9faa3aea-fbc0-e67f-073d-953b499410ff}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{b8caea51-99d4-1b09-1b46-abecdb46bb07}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityEditor.TestRunner", "UnityEditor.TestRunner.csproj", "{8eb3d802-afe0-01d2-b428-cb4cb0a46cb7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.PlasticSCM.Editor", "Unity.PlasticSCM.Editor.csproj", "{11280e0d-0c0a-09d2-168e-efc963140891}"
@@ -52,6 +54,8 @@ Global
 		{79080087-506a-ab91-6585-f10f68290f0e}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9faa3aea-fbc0-e67f-073d-953b499410ff}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9faa3aea-fbc0-e67f-073d-953b499410ff}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{b8caea51-99d4-1b09-1b46-abecdb46bb07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{b8caea51-99d4-1b09-1b46-abecdb46bb07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8eb3d802-afe0-01d2-b428-cb4cb0a46cb7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8eb3d802-afe0-01d2-b428-cb4cb0a46cb7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11280e0d-0c0a-09d2-168e-efc963140891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
