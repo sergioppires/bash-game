@@ -24,14 +24,10 @@ public class Events : MonoBehaviour
 
 
     //Fireworks Emitter Events 
-    public event Action<Fireworks> onEmitFireworksRight;
-    public event Action<Fireworks> onEmitFireworksLeft;
+    public event Action<Fireworks> onEmitFireworks;
 
-    public void EmitFireworksRight(Fireworks fireworks){
-        onEmitFireworksRight?.Invoke(fireworks);
+    public void EmitFireworks(Fireworks fireworks){
+        onEmitFireworks?.Invoke(fireworks);
     }
 
-    public void EmitFireworksLeft(Fireworks fireworks){
-        onEmitFireworksLeft?.Invoke(fireworks);
-    }
 }

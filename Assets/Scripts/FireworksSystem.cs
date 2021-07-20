@@ -14,8 +14,6 @@ public class FireworksSystem : MonoBehaviour
     IEnumerator Start() {
         particleSystemRight = particleSystemGMRight.GetComponent<ParticleSystem>();
         particleSystemLeft = particleSystemGMLeft.GetComponent<ParticleSystem>();
-        Events.current.onPressRightButton += EmitParticleRight;
-        Events.current.onPressLeftButton += EmitParticleLeft;
         yield return StartCoroutine(SubrotinaFogos(2.0f));
 
     }
@@ -33,13 +31,13 @@ public class FireworksSystem : MonoBehaviour
     }
 
     void EmitParticleRight(){
-        Events.current.EmitFireworksRight(configureFireworks(false));
+        Events.current.EmitFireworks(configureFireworks(false));
         particleSystemLeft.startLifetime = 1.0f;
         particleSystemRight.Emit(1);
     }
 
     void EmitParticleLeft(){
-        Events.current.EmitFireworksLeft(configureFireworks(true));
+        Events.current.EmitFireworks(configureFireworks(true));
         particleSystemLeft.startLifetime = 1.0f;
         particleSystemLeft.Emit(1);
     }
