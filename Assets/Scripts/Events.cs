@@ -25,9 +25,14 @@ public class Events : MonoBehaviour
 
     //Fireworks Emitter Events 
     public event Action<Fireworks> onEmitFireworks;
+    public event Action<bool> onExplodeFireworks;
 
     public void EmitFireworks(Fireworks fireworks){
         onEmitFireworks?.Invoke(fireworks);
     }
+
+        public void ExplodeFireworks(bool success){
+        onExplodeFireworks?.Invoke(success);
+    }   
 
 }

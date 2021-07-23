@@ -4,46 +4,70 @@ using UnityEngine;
 
 public class FireworksSystem : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] private GameObject particleSystemGMRight;
     [SerializeField] private GameObject particleSystemGMLeft;
-
+    [SerializeField] private ParticleLifetimeEvents particleEventsLeft;
+    [SerializeField] private SoundController soundController;
     private ParticleSystem particleSystemRight, particleSystemLeft;
-    ParticleSystem.Particle[] m_ParticlesRight, m_ParticlesLeft;
-
-    IEnumerator Start() {
-        particleSystemRight = particleSystemGMRight.GetComponent<ParticleSystem>();
+    void Start()
+    {
         particleSystemLeft = particleSystemGMLeft.GetComponent<ParticleSystem>();
-        yield return StartCoroutine(SubrotinaFogos(2.0f));
-
+        particleSystemRight = particleSystemGMRight.GetComponent<ParticleSystem>();
+        particleEventsLeft.ParticleDied += ParticleDied;
+        StartCoroutine(SubrotinaFogos(2.0f));
     }
 
     IEnumerator SubrotinaFogos(float waitTime) {
-        while(true){
-        System.Random random = new System.Random(); 
-        if (random.NextDouble() > 0.5) {
-            EmitParticleRight();
-        } else {
-            EmitParticleLeft();
+        while (true) {
+            System.Random random = new System.Random();
+            if (random.NextDouble() > 0.5) {
+                EmitParticle(false);
+            } else {
+                EmitParticle(true);
+            }
+            yield return new WaitForSeconds(waitTime);
         }
-        yield return new WaitForSeconds(waitTime);
+    }
+    void EmitParticle(bool isLeft)
+    {
+        Fireworks currentFirework = configureFireworks(isLeft);
+        Events.current.EmitFireworks(currentFirework);
+        configureFireworks(currentFirework);
+        EmitFireworks(currentFirework);
+    }    
+
+    void ParticleDied(){
+        soundController.PlaySound(true);
+    }
+
+    private void configureFireworks(Fireworks currentFirework)
+    {
+        if (currentFirework.isLeft)
+        {
+            particleSystemLeft.startLifetime = currentFirework.speed;
+            particleSystemLeft.startColor = currentFirework.color;
+        }
+        else
+        {
+            particleSystemRight.startLifetime = currentFirework.speed;
+            particleSystemRight.startColor = currentFirework.color;
         }
     }
 
-    void EmitParticleRight(){
-        Events.current.EmitFireworks(configureFireworks(false));
-        particleSystemLeft.startLifetime = 1.0f;
-        particleSystemRight.Emit(1);
+    private void EmitFireworks(Fireworks fireworks)
+    {
+        if (fireworks.isLeft)
+        {
+            particleSystemLeft.Emit(1);
+        }
+        else
+        {
+            particleSystemRight.Emit(1);
+        }
     }
-
-    void EmitParticleLeft(){
-        Events.current.EmitFireworks(configureFireworks(true));
-        particleSystemLeft.startLifetime = 1.0f;
-        particleSystemLeft.Emit(1);
-    }
-
-    private Fireworks configureFireworks(bool isLeft){
-        return new Fireworks(1.0f, new Color(UnityEngine.Random.Range(0F,1F), UnityEngine.Random.Range(0, 1F), UnityEngine.Random.Range(0, 1F)),isLeft);
+    private Fireworks configureFireworks(bool isLeft)
+    {
+        return new Fireworks(1.0f, new Color(UnityEngine.Random.Range(0F, 1F), UnityEngine.Random.Range(0, 1F), UnityEngine.Random.Range(0, 1F)), isLeft);
     }
 
 
