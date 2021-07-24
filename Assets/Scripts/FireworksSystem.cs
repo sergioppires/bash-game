@@ -9,6 +9,8 @@ public class FireworksSystem : MonoBehaviour
     [SerializeField] private ParticleLifetimeEvents particleEventsLeft;
     [SerializeField] private ParticleLifetimeEvents particleEventsRight;
     [SerializeField] private SoundController soundController;
+    [SerializeField] private ParticleSystem badExplosionLeft;
+    [SerializeField] private ParticleSystem goodExplosionLeft;
     private ParticleSystem particleSystemRight, particleSystemLeft;
     private bool gameStarted = false, successLeftFireworks = false, successRightFireworks = false;
 
@@ -19,6 +21,7 @@ public class FireworksSystem : MonoBehaviour
         particleEventsLeft.ParticleDied += ParticleDiedLeft;
         particleEventsRight.ParticleDied += ParticleDiedRight;
         Events.current.onStartGame += StartGame;
+        Events.current.onHitButtonRightTime += configureFireworksExplosion;
         StartCoroutine(SubrotinaFogos(2.0f));
     }
 
@@ -58,21 +61,33 @@ public class FireworksSystem : MonoBehaviour
     {
         if (successLeftFireworks)
         {
-            particleEventsLeft
+            particleSystemLeft.subEmitters.SetSubEmitterSystem(1, goodExplosionLeft);
+            Events.current.ExplodeFireworks(true);
+
         }
         else
         {
-
+            particleSystemLeft.subEmitters.SetSubEmitterSystem(1, badExplosionLeft);
+            Events.current.ExplodeFireworks(false);
         }
-        Events.current.ExplodeFireworks(true);
+        successLeftFireworks = false;
     }
-
 
     void ParticleDiedRight()
     {
-        Events.current.ExplodeFireworks(true);
-    }
+        if (successRightFireworks)
+        {
+            particleSystemRight.subEmitters.SetSubEmitterSystem(1, goodExplosionLeft);
+            Events.current.ExplodeFireworks(true);
 
+        }
+        else
+        {
+            particleSystemRight.subEmitters.SetSubEmitterSystem(1, badExplosionLeft);
+            Events.current.ExplodeFireworks(false);
+        }
+        successRightFireworks = false;
+    }
     private void configureFireworks(Fireworks currentFirework)
     {
         if (currentFirework.isLeft)
@@ -101,6 +116,15 @@ public class FireworksSystem : MonoBehaviour
     private Fireworks configureFireworks(bool isLeft)
     {
         return new Fireworks(1.0f, new Color(UnityEngine.Random.Range(0F, 1F), UnityEngine.Random.Range(0, 1F), UnityEngine.Random.Range(0, 1F)), isLeft);
+    }
+
+    private void configureFireworksExplosion(bool isLeft)
+    {
+        if (isLeft)
+        {
+            successLeftFireworks = true;
+        }
+        successRightFireworks = true;
     }
 
 

@@ -25240,7 +25240,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136385240}
-  m_LocalRotation: {x: 0.007911443, y: 0.98961484, z: 0.060060956, w: -0.13035557}
+  m_LocalRotation: {x: 0.007982112, y: 0.98946077, z: 0.060051605, w: -0.13151997}
   m_LocalPosition: {x: 12.258598, y: 4.627663, z: 37.825256}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -30743,6 +30743,8 @@ MonoBehaviour:
   particleEventsLeft: {fileID: 599038351}
   particleEventsRight: {fileID: 1227733237}
   soundController: {fileID: 1421410608}
+  badExplosionLeft: {fileID: 2022614758}
+  goodExplosionLeft: {fileID: 1657011907}
 --- !u!4 &1421410606
 Transform:
   m_ObjectHideFlags: 0
@@ -31103,7 +31105,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459119431}
-  m_LocalRotation: {x: 0.010201416, y: 0.9883876, z: 0.07731312, w: -0.13041711}
+  m_LocalRotation: {x: 0.010304784, y: 0.98821235, z: 0.07729939, w: -0.13173863}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

@@ -19,7 +19,8 @@ public class Controller : MonoBehaviour
     int score = 0;
 
     void Start() {
-        Events.current.onEmitFireworks += EmitNote;        
+        Events.current.onEmitFireworks += EmitNote;    
+        Events.current.onHitButtonRightTime += Score;    
     }
 
     void Update () { 
@@ -59,12 +60,12 @@ public class Controller : MonoBehaviour
         return Instantiate(note, note.transform.position, note.transform.rotation);
     }
 
-    public void Score(){
+    public void Score(bool isLeft){
         score += 10;
         scoreTM.text = score.ToString();
     }
     public void Fail(){
-        Debug.Log("Fail");
+        Events.current.ExplodeFireworks(false);
     }
 
     public void ActivateLeft(){

@@ -34,6 +34,7 @@ public class Events : MonoBehaviour
     //Fireworks Emitter Events 
     public event Action<Fireworks> onEmitFireworks;
     public event Action<bool> onExplodeFireworks;
+    public event Action<bool> onHitButtonRightTime;
 
     public void EmitFireworks(Fireworks fireworks)
     {
@@ -43,6 +44,10 @@ public class Events : MonoBehaviour
     public void ExplodeFireworks(bool success)
     {
         onExplodeFireworks?.Invoke(success);
+    }
+    public void HitButtonRightTime(bool isLeft)
+    {
+        onHitButtonRightTime?.Invoke(isLeft);
     }
 
 }

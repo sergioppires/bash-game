@@ -11,87 +11,114 @@ public class Note : MonoBehaviour
     private float speedEnumerator = 100;
     private float time = 0f, speed = 1.0f;
     private float yOffset = -7f, heightOffset = -11.41f;
-    bool active = false, isLeftReadyToPress = false, isRightReadyToPress = false;
+    bool active = false, isLeftReadyToPress = false, isRightReadyToPress = false, validated = false;
 
-    
+
 
     private Fireworks fireworks;
 
-    void Start(){
+    void Start()
+    {
         Events.current.onPressLeftButton += LeftButtonpress;
         Events.current.onPressRightButton += RightButtonPress;
     }
 
-    void LateUpdate()
+    void Update()
     {
-        if(active){
-            time += Time.deltaTime/(speed*speedEnumerator);
+        if (active)
+        {
+            time += Time.deltaTime / (speed * speedEnumerator);
             UpdatePosition();
-            VerifyToDestroy(fireworks.isLeft);     
-            VerifyToClick(fireworks.isLeft);       
-        }        
-    }
-
-    void UpdatePosition(){
-        transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y + heightOffset, transform.position.z), time);
-    }
-
-    void VerifyToDestroy(bool isLeft){
-        if(transform.localPosition.y <= (leftButton.transform.localPosition.y + 0.1f)){
-            Destroy(gameObject);
-            if(isLeft){
-                isLeftReadyToPress = false;                
-            } else {
-                isRightReadyToPress = false; 
-            }
-            controller.GetComponent<Controller>().Fail();
+            VerifyToDestroy(fireworks.isLeft);
+            VerifyToClick(fireworks.isLeft);
         }
     }
 
-    void VerifyToClick(bool isLeft){
-        if(transform.localPosition.y <= (leftButton.transform.localPosition.y + 3f)){
-            if(isLeft){
+    void UpdatePosition()
+    {
+        transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y + heightOffset, transform.position.z), time);
+    }
+
+    void VerifyToDestroy(bool isLeft)
+    {
+        if (transform.localPosition.y <= (leftButton.transform.localPosition.y + 0.1f))
+        {
+            Destroy(gameObject);
+            if (isLeft)
+            {
+                isLeftReadyToPress = false;
+            }
+            else
+            {
+                isRightReadyToPress = false;
+            }
+            if (!validated)
+            {
+                controller.GetComponent<Controller>().Fail();
+            }
+        }
+    }
+
+    void VerifyToClick(bool isLeft)
+    {
+        if (transform.localPosition.y <= (leftButton.transform.localPosition.y + 3f))
+        {
+            if (isLeft)
+            {
                 isLeftReadyToPress = true;
-            } else {
+            }
+            else
+            {
                 isRightReadyToPress = true;
             }
         }
     }
 
-    void LeftButtonpress(){
-        if(isLeftReadyToPress){
-            controller.GetComponent<Controller>().Score();
-            Destroy(gameObject);
+    void LeftButtonpress()
+    {
+        if (isLeftReadyToPress)
+        {
+            Events.current.HitButtonRightTime(true);
+            validated = true;
             isLeftReadyToPress = false;
-        } 
+        }
     }
 
-    void RightButtonPress(){
-        if(isRightReadyToPress){
-            controller.GetComponent<Controller>().Score();
-            Destroy(gameObject);
+    void RightButtonPress()
+    {
+        if (isRightReadyToPress)
+        {
+            Events.current.HitButtonRightTime(false);
+            validated = true;
             isRightReadyToPress = false;
         }
     }
-    public void SyncWithFirework(Fireworks firework){
+    public void SyncWithFirework(Fireworks firework)
+    {
         this.fireworks = firework;
         speed = firework.speed;
         SetInitialPosition(firework.isLeft);
         Activate();
     }
 
-    private void Activate(){
-        active = true;        
+    private void Activate()
+    {
+        active = true;
     }
 
-    public void SetSpeed(float newSpeed){
+    public void SetSpeed(float newSpeed)
+    {
         speed = newSpeed;
     }
 
-    private void SetInitialPosition(bool isLeft){
-        if(isLeft){
+    private void SetInitialPosition(bool isLeft)
+    {
+        if (isLeft)
+        {
             transform.localPosition = new Vector3(leftButton.transform.localPosition.x, transform.localPosition.y + yOffset, transform.localPosition.z);
-        } else {
+        }
+        else
+        {
             transform.localPosition = new Vector3(rightButton.transform.localPosition.x, transform.localPosition.y + yOffset, transform.localPosition.z);
         }
     }
