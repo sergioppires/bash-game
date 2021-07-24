@@ -7,23 +7,41 @@ public class FireworksSystem : MonoBehaviour
     [SerializeField] private GameObject particleSystemGMRight;
     [SerializeField] private GameObject particleSystemGMLeft;
     [SerializeField] private ParticleLifetimeEvents particleEventsLeft;
+    [SerializeField] private ParticleLifetimeEvents particleEventsRight;
     [SerializeField] private SoundController soundController;
     private ParticleSystem particleSystemRight, particleSystemLeft;
+    private bool gameStarted = false, successLeftFireworks = false, successRightFireworks = false;
+
     void Start()
     {
         particleSystemLeft = particleSystemGMLeft.GetComponent<ParticleSystem>();
         particleSystemRight = particleSystemGMRight.GetComponent<ParticleSystem>();
-        particleEventsLeft.ParticleDied += ParticleDied;
+        particleEventsLeft.ParticleDied += ParticleDiedLeft;
+        particleEventsRight.ParticleDied += ParticleDiedRight;
+        Events.current.onStartGame += StartGame;
         StartCoroutine(SubrotinaFogos(2.0f));
     }
 
-    IEnumerator SubrotinaFogos(float waitTime) {
-        while (true) {
-            System.Random random = new System.Random();
-            if (random.NextDouble() > 0.5) {
-                EmitParticle(false);
-            } else {
-                EmitParticle(true);
+    void StartGame()
+    {
+        gameStarted = true;
+    }
+
+    IEnumerator SubrotinaFogos(float waitTime)
+    {
+        while (true)
+        {
+            if (gameStarted)
+            {
+                System.Random random = new System.Random();
+                if (random.NextDouble() > 0.5)
+                {
+                    EmitParticle(false);
+                }
+                else
+                {
+                    EmitParticle(true);
+                }
             }
             yield return new WaitForSeconds(waitTime);
         }
@@ -34,10 +52,25 @@ public class FireworksSystem : MonoBehaviour
         Events.current.EmitFireworks(currentFirework);
         configureFireworks(currentFirework);
         EmitFireworks(currentFirework);
-    }    
+    }
 
-    void ParticleDied(){
-        soundController.PlaySound(true);
+    void ParticleDiedLeft()
+    {
+        if (successLeftFireworks)
+        {
+            particleEventsLeft
+        }
+        else
+        {
+
+        }
+        Events.current.ExplodeFireworks(true);
+    }
+
+
+    void ParticleDiedRight()
+    {
+        Events.current.ExplodeFireworks(true);
     }
 
     private void configureFireworks(Fireworks currentFirework)

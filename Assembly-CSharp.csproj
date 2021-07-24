@@ -39,12 +39,13 @@
      <Compile Include="Assets\Scripts\Controller.cs" />
      <Compile Include="Assets\Scripts\Events.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\ParticleLifetimeEvents.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Domain\Fireworks.cs" />
+     <Compile Include="Assets\Scripts\SoundController.cs" />
      <Compile Include="Assets\Scripts\Note.cs" />
      <Compile Include="Assets\Scripts\FireworksSystem.cs" />
-     <Compile Include="Assets\Scripts\SoundController.cs" />
-     <Compile Include="Assets\Scripts\ParticleLifetimeEvents.cs" />
+     <Compile Include="Assets\Scripts\StartButton.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

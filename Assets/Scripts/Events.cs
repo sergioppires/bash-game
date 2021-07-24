@@ -6,19 +6,27 @@ public class Events : MonoBehaviour
 
     public static Events current;
 
-    private void Awake() {
+    private void Awake()
+    {
         current = this;
+    }
+    public event Action onStartGame;
+    public void StartGame()
+    {
+        onStartGame?.Invoke();
     }
 
     //Button press events
     public event Action onPressRightButton;
     public event Action onPressLeftButton;
 
-    public void PressRightButton(){
+    public void PressRightButton()
+    {
         onPressRightButton?.Invoke();
     }
 
-    public void PressLeftButton(){
+    public void PressLeftButton()
+    {
         onPressLeftButton?.Invoke();
     }
 
@@ -27,12 +35,14 @@ public class Events : MonoBehaviour
     public event Action<Fireworks> onEmitFireworks;
     public event Action<bool> onExplodeFireworks;
 
-    public void EmitFireworks(Fireworks fireworks){
+    public void EmitFireworks(Fireworks fireworks)
+    {
         onEmitFireworks?.Invoke(fireworks);
     }
 
-        public void ExplodeFireworks(bool success){
+    public void ExplodeFireworks(bool success)
+    {
         onExplodeFireworks?.Invoke(success);
-    }   
+    }
 
 }
