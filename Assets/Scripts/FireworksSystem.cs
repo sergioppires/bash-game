@@ -21,6 +21,7 @@ public class FireworksSystem : MonoBehaviour
         particleEventsLeft.ParticleDied += ParticleDiedLeft;
         particleEventsRight.ParticleDied += ParticleDiedRight;
         Events.current.onStartGame += StartGame;
+        Events.current.onEndGame += EndGame;
         Events.current.onHitButtonRightTime += configureFireworksExplosion;
         StartCoroutine(SubrotinaFogos(2.0f));
     }
@@ -28,6 +29,11 @@ public class FireworksSystem : MonoBehaviour
     void StartGame()
     {
         gameStarted = true;
+    }
+
+    void EndGame()
+    {
+        gameStarted = false;
     }
 
     IEnumerator SubrotinaFogos(float waitTime)

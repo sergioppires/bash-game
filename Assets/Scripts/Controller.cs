@@ -7,24 +7,30 @@ using TMPro;
 public class Controller : MonoBehaviour
 {
     [SerializeField] private GameObject controllerSystem;
+    [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject note;
     [SerializeField] private GameObject rightButton;
     [SerializeField] private GameObject leftButton;
     [SerializeField] private TextMeshProUGUI scoreTM;
-
-    private bool active = false;
-
-    bool EmitLeft = false, EmitRight = false, isLeftReadyToPress = false, isRightReadyToPress = false;
+    [SerializeField] private Animator anim;
+    bool isLeftReadyToPress = false, isRightReadyToPress = false;
 
     int score = 0;
 
     void Start() {
         Events.current.onEmitFireworks += EmitNote;    
-        Events.current.onHitButtonRightTime += Score;    
+        Events.current.onHitButtonRightTime += Score; 
+        Events.current.onEndGame += GameOver;  
     }
 
     void Update () { 
         ControllerInputListener();
+     }
+
+     void GameOver(){
+         controllerSystem.SetActive(false);
+         gameOverUI.SetActive(true);
+         anim.Play("Die", 0, 0.25f);
      }
 
      void ControllerInputListener(){
@@ -54,8 +60,9 @@ public class Controller : MonoBehaviour
     void EmitNote(Fireworks fireworks){     
         GameObject newNote = InstantiateNote();
         newNote.transform.SetParent(controllerSystem.transform);
-        newNote.GetComponent<Note>().SyncWithFirework(fireworks);        
-    }
+        newNote.GetComponent<Note>().SyncWithFirework(fireworks);
+        anim.Play("Attack01", 0, 0.25f);
+        }
     private GameObject InstantiateNote(){
         return Instantiate(note, note.transform.position, note.transform.rotation);
     }

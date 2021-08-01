@@ -11,9 +11,15 @@ public class Events : MonoBehaviour
         current = this;
     }
     public event Action onStartGame;
+    public event Action onEndGame;
     public void StartGame()
     {
         onStartGame?.Invoke();
+    }
+
+    public void EndGame()
+    {
+        onEndGame?.Invoke();
     }
 
     //Button press events

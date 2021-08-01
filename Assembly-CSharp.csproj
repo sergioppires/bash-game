@@ -36,9 +36,12 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Houses\Low poly package\Scripts\GameHandler.cs" />
      <Compile Include="Assets\Scripts\Controller.cs" />
+     <Compile Include="Assets\Houses\Low poly package\Scripts\ScreenshotHandler.cs" />
      <Compile Include="Assets\Scripts\Events.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\CinemachineAnimation.cs" />
      <Compile Include="Assets\Scripts\ParticleLifetimeEvents.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Domain\Fireworks.cs" />
@@ -46,9 +49,8 @@
      <Compile Include="Assets\Scripts\StartButton.cs" />
      <Compile Include="Assets\Scripts\Note.cs" />
      <Compile Include="Assets\Scripts\FireworksSystem.cs" />
-     <Compile Include="Assets\Houses\Low poly package\Scripts\GameHandler.cs" />
-     <Compile Include="Assets\Houses\Low poly package\Scripts\ScreenshotHandler.cs" />
-     <Compile Include="Assets\Scripts\CinemachineAnimation.cs" />
+     <Compile Include="Assets\Scripts\DayCycle.cs" />
+     <Compile Include="Assets\Scripts\LifeSystem.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -681,6 +683,10 @@
     <ProjectReference Include="UnityEngine.UI.csproj">
       <Project>{af6a730a-ff53-50c0-21b9-86b5d38cd3df}</Project>
       <Name>UnityEngine.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
+      <Project>{8342ae7c-e705-7c2e-fbf5-543dd6e9bb00}</Project>
+      <Name>Unity.2D.Sprite.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

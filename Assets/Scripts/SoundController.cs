@@ -16,6 +16,8 @@ public class SoundController : MonoBehaviour
     //Dissonant Sounds
     [SerializeField] private AudioSource E5Sound;
     [SerializeField] private AudioSource B5Sound;
+
+    [SerializeField] private AudioSource StartMenuSound;
     private float BPM = 70;
     private float MusicTimeTick;
 
@@ -23,13 +25,28 @@ public class SoundController : MonoBehaviour
     void Start()
     {
         Events.current.onExplodeFireworks += PlaySound;
-        Events.current.onStartGame += StartBackGroundMusic;
+        Events.current.onStartGame += SetupSounds;
+        Events.current.onEndGame += StopSounds;
         MusicTimeTick = 60/BPM;
+    }
+
+    void SetupSounds(){
+        StopMenuSound();
+        StartBackGroundMusic();
+    }
+
+    void StopSounds(){
+        BackgroundMusic.Stop();
     }
 
     void StartBackGroundMusic()
     {
         BackgroundMusic.Play();
+    }
+
+    void StopMenuSound()
+    {
+        StartMenuSound.Stop();
     }
 
     public void PlaySound(bool sucess)
@@ -74,4 +91,6 @@ public class SoundController : MonoBehaviour
     {
         E5Sound.Play();
     }
+
+
 }
