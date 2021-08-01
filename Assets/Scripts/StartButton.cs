@@ -6,6 +6,7 @@ public class StartButton : MonoBehaviour
 {
     [SerializeField] private GameObject startButton;
     [SerializeField] private GameObject controllerSystem;
+    [SerializeField] private GameObject UIName;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +20,11 @@ public class StartButton : MonoBehaviour
     }
 
     void OnMouseDown()
-    {
+    {        
         Events.current.StartGame();
         controllerSystem.SetActive(true);
         startButton.SetActive(false);
+        UIName.SetActive(false);
     }
-
 
 }
