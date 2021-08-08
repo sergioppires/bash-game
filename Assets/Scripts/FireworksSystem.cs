@@ -24,7 +24,7 @@ public class FireworksSystem : MonoBehaviour
         particleEventsLeft.ParticleDied += ParticleDiedLeft;
         particleEventsRight.ParticleDied += ParticleDiedRight;
         Events.current.onStartGame += StartGame;
-        Events.current.onEndGame += EndGame;
+        Events.current.onEndGame += SetEndGame;
         Events.current.onHitButtonRightTime += configureFireworksExplosion;
         StartCoroutine(SubrotinaFogos(2.0f));
     }
@@ -34,7 +34,7 @@ public class FireworksSystem : MonoBehaviour
         gameStarted = true;
     }
 
-    void EndGame()
+    void SetEndGame()
     {
         gameStarted = false;
     }

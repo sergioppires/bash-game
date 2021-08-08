@@ -42,7 +42,8 @@ public class LevelProgression : MonoBehaviour
     void ResetLevelUpProgression()
     {
         Level = 1;
-        StopCoroutine(LevelUpLogic(timeToLevelUp));
+        Events.current.LevelUp(GetActualLevel());
+        StopAllCoroutines();
     }
 
     public Level GetActualLevel(){

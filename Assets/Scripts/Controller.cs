@@ -72,7 +72,7 @@ public class Controller : MonoBehaviour
         scoreTM.text = score.ToString();
     }
     public void Fail(){
-        Events.current.ExplodeFireworks(false);
+        // Events.current.ExplodeFireworks(false);
     }
 
     public void ActivateLeft(){
