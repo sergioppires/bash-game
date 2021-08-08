@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private string moveInputAxis = "Vertical";
-    private float moveSpeed = 0.05f;
 
+    [SerializeField] private Light lightSystem;
     void Start() {
-        
+        Events.current.onLevelUp += UpdateLightAmount;
     }
 
-    void Update() {
-        float moveAxis = Input.GetAxis(moveInputAxis);
-        Move(moveAxis);
+    void UpdateLightAmount(Level level){
+        lightSystem.range = level.lightRange;
     }
 
-    private void Move(float input){
-        transform.Translate(Vector3.forward * input * moveSpeed);
-    }
 }

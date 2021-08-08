@@ -8,7 +8,7 @@ public class CinemachineAnimation : MonoBehaviour
 
     [SerializeField] public CinemachineFreeLook cinemachineFreeLook;
 
-    public float yvalue = 0.93f, index = 0;
+    public float yvalue = 0.93f, index = 0, xSpeedInitial = 0.1f, xSpeedGame = 0.05f;
     bool isActive = false;
 
     private AxisState initialValueX;
@@ -24,10 +24,10 @@ public class CinemachineAnimation : MonoBehaviour
     {
         if (isActive)
         {
-            cinemachineFreeLook.m_XAxis = initialValueX;
+            cinemachineFreeLook.m_XAxis.Value = xSpeedGame;
             cinemachineFreeLook.m_YAxis.Value = yvalue;
         } else {
-            cinemachineFreeLook.m_XAxis.Value = 0.1f;
+            cinemachineFreeLook.m_XAxis.Value = xSpeedInitial;
         }
 
     }

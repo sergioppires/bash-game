@@ -56,4 +56,21 @@ public class Events : MonoBehaviour
         onHitButtonRightTime?.Invoke(isLeft);
     }
 
+    //LevelUp Events
+    public event Action<Level> onLevelUp;
+    public event Action<Level> onLevelReset;
+    public event Action<Level> onUpdateLevel; 
+
+    public void LevelUp(Level level)
+    {
+        onLevelUp?.Invoke(level);
+    }
+    public void LevelReset(Level level)
+    {
+        onLevelReset?.Invoke(level);
+    }
+    public void UpdateLevel(Level level)
+    {
+        onUpdateLevel?.Invoke(level);
+    }
 }

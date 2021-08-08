@@ -2,9 +2,12 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CameraFollow
+    - CinemachineAnimation
     - Controller
+    - DayCycle
     - Events
     - FireworksSystem
+    - LifeSystem
     - Note
     - ParticleLifetimeEvents
     - PlayerController
@@ -92,53 +95,59 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1510}
     - Class: 114
-      Script: {instanceID: 1704}
+      Script: {instanceID: 1574}
     - Class: 114
-      Script: {instanceID: 1792}
+      Script: {instanceID: 1708}
     - Class: 114
-      Script: {instanceID: 2054}
+      Script: {instanceID: 1796}
     - Class: 114
-      Script: {instanceID: 2230}
+      Script: {instanceID: 2064}
     - Class: 114
-      Script: {instanceID: 2330}
+      Script: {instanceID: 2246}
     - Class: 114
-      Script: {instanceID: 2358}
+      Script: {instanceID: 2350}
     - Class: 114
-      Script: {instanceID: 2368}
+      Script: {instanceID: 2380}
     - Class: 114
-      Script: {instanceID: 2430}
+      Script: {instanceID: 2390}
     - Class: 114
-      Script: {instanceID: 2488}
+      Script: {instanceID: 2454}
     - Class: 114
-      Script: {instanceID: 2528}
+      Script: {instanceID: 2512}
     - Class: 114
-      Script: {instanceID: 2546}
+      Script: {instanceID: 2554}
     - Class: 114
-      Script: {instanceID: 2642}
+      Script: {instanceID: 2572}
     - Class: 114
-      Script: {instanceID: 2772}
+      Script: {instanceID: 2676}
     - Class: 114
-      Script: {instanceID: 2780}
+      Script: {instanceID: 2808}
     - Class: 114
-      Script: {instanceID: 2838}
+      Script: {instanceID: 2816}
     - Class: 114
-      Script: {instanceID: 2886}
+      Script: {instanceID: 2876}
     - Class: 114
-      Script: {instanceID: 3166}
+      Script: {instanceID: 2884}
     - Class: 114
-      Script: {instanceID: 3256}
+      Script: {instanceID: 2928}
     - Class: 114
-      Script: {instanceID: 3496}
+      Script: {instanceID: 3122}
     - Class: 114
-      Script: {instanceID: 3800}
+      Script: {instanceID: 3214}
     - Class: 114
-      Script: {instanceID: 3874}
+      Script: {instanceID: 3306}
     - Class: 114
-      Script: {instanceID: 4140}
+      Script: {instanceID: 3548}
     - Class: 114
-      Script: {instanceID: 4476}
+      Script: {instanceID: 3852}
     - Class: 114
-      Script: {instanceID: 4604}
+      Script: {instanceID: 3928}
+    - Class: 114
+      Script: {instanceID: 4198}
+    - Class: 114
+      Script: {instanceID: 4550}
+    - Class: 114
+      Script: {instanceID: 4682}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -174,6 +183,12 @@ ScriptsOnlyBuild:
     className: Image
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameHandler
+  - hash:
+      serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -190,6 +205,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine.PostFX
     className: CinemachineVolumeSettings
+  - hash:
+      serializedVersion: 2
+      Hash: d16f17dffcc5ce2a82191c9e0c3b3477
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LifeSystem
   - hash:
       serializedVersion: 2
       Hash: 77aaaaa51f7a8d8ff333a879741e47d2
@@ -342,7 +363,7 @@ ScriptsOnlyBuild:
     className: CinemachineBrain
   - hash:
       serializedVersion: 2
-      Hash: 865fc6041b6ec2ea50d62d2b3b5f292e
+      Hash: bb9da3a5ae5ee3184cdd9f25eb1e254c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Controller
@@ -468,6 +489,12 @@ ScriptsOnlyBuild:
     className: CinemachineInputProvider
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ScreenshotHandler
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Cinemachine.dll
     namespaceName: 
@@ -496,6 +523,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: StandaloneInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: 888a0be037263f375c65519c27963cbf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CinemachineAnimation
   - hash:
       serializedVersion: 2
       Hash: f7858108331b563fb41b80b729297acd
@@ -564,6 +597,12 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
+      Hash: 8721450fe58b5007a156b68410df9ec7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DayCycle
+  - hash:
+      serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -624,7 +663,7 @@ ScriptsOnlyBuild:
     className: CinemachineFixedSignal
   - hash:
       serializedVersion: 2
-      Hash: 58a9d6c585ca2c8c2176ab57c8c05a24
+      Hash: 53e3a42c45122bbc21c77eae03a48e05
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SoundController
@@ -708,7 +747,7 @@ ScriptsOnlyBuild:
     className: Dropdown
   - hash:
       serializedVersion: 2
-      Hash: 9de850e40614a7614f5f247baca95a31
+      Hash: 486f0a53b89c574b96676e043cfc86ea
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StartButton

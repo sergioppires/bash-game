@@ -11,6 +11,9 @@ public class FireworksSystem : MonoBehaviour
     [SerializeField] private SoundController soundController;
     [SerializeField] private ParticleSystem badExplosionLeft;
     [SerializeField] private ParticleSystem goodExplosionLeft;
+    [SerializeField] private ParticleSystem badExplosionRight;
+    [SerializeField] private ParticleSystem goodExplosionRight;
+    [SerializeField] private LevelProgression levelProgression;
     private ParticleSystem particleSystemRight, particleSystemLeft;
     private bool gameStarted = false, successLeftFireworks = false, successRightFireworks = false;
 
@@ -40,6 +43,8 @@ public class FireworksSystem : MonoBehaviour
     {
         while (true)
         {
+            Level actualLevel = levelProgression.GetActualLevel();
+            waitTime = actualLevel.fireworkLaunchRatio;
             if (gameStarted)
             {
                 System.Random random = new System.Random();
@@ -83,13 +88,13 @@ public class FireworksSystem : MonoBehaviour
     {
         if (successRightFireworks)
         {
-            particleSystemRight.subEmitters.SetSubEmitterSystem(1, goodExplosionLeft);
+            particleSystemRight.subEmitters.SetSubEmitterSystem(1, goodExplosionRight);
             Events.current.ExplodeFireworks(true);
 
         }
         else
         {
-            particleSystemRight.subEmitters.SetSubEmitterSystem(1, badExplosionLeft);
+            particleSystemRight.subEmitters.SetSubEmitterSystem(1, badExplosionRight);
             Events.current.ExplodeFireworks(false);
         }
         successRightFireworks = false;
@@ -121,7 +126,8 @@ public class FireworksSystem : MonoBehaviour
     }
     private Fireworks configureFireworks(bool isLeft)
     {
-        return new Fireworks(1.0f, new Color(UnityEngine.Random.Range(0F, 1F), UnityEngine.Random.Range(0, 1F), UnityEngine.Random.Range(0, 1F)), isLeft);
+        Level actualLevel = levelProgression.GetActualLevel(); 
+        return new Fireworks(actualLevel.fireworkSpeed, new Color(UnityEngine.Random.Range(0F, 1F), UnityEngine.Random.Range(0, 1F), UnityEngine.Random.Range(0, 1F)), isLeft);
     }
 
     private void configureFireworksExplosion(bool isLeft)
@@ -132,6 +138,5 @@ public class FireworksSystem : MonoBehaviour
         }
         successRightFireworks = true;
     }
-
 
 }

@@ -27,7 +27,7 @@ public class Note : MonoBehaviour
     {
         if (active)
         {
-            time += Time.deltaTime / (speed * speedEnumerator);
+            time += Time.smoothDeltaTime / (speed * speedEnumerator);
             UpdatePosition();
             VerifyToDestroy(fireworks.isLeft);
             VerifyToClick(fireworks.isLeft);
