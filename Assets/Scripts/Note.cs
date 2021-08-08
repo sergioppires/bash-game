@@ -23,7 +23,7 @@ public class Note : MonoBehaviour
         Events.current.onPressRightButton += RightButtonPress;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (active)
         {

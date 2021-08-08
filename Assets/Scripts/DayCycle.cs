@@ -18,9 +18,7 @@ public class DayCycle : MonoBehaviour
         Events.current.onStartGame += ActivateDay;
         Events.current.onEndGame += DeactivateDay;
     }
-
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {        
         if(isActive){
             lightGM.transform.Rotate(0.0f, rotation, 0.0f, Space.Self);

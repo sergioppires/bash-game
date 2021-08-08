@@ -19,10 +19,14 @@ public class LifeSystem : MonoBehaviour
     void Update()
     {
         livesIndicator.text = numberOfLifes.ToString();
-        if(numberOfLifes <= 0){
-            Events.current.EndGame();
-            numberOfLifes = defaultLives;
+        if(numberOfLifes == 0){
+            Finishgame();
+            numberOfLifes = -1;
         }
+    }
+
+    void Finishgame(){
+        Events.current.EndGame();
     }
 
     void SetupLifes(){

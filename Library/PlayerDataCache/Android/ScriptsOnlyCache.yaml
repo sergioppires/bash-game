@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - DayCycle
     - Events
     - FireworksSystem
+    - LevelProgression
     - LifeSystem
     - Note
     - ParticleLifetimeEvents
@@ -93,61 +94,63 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1510}
+      Script: {instanceID: 1564}
     - Class: 114
-      Script: {instanceID: 1574}
+      Script: {instanceID: 1630}
     - Class: 114
-      Script: {instanceID: 1708}
+      Script: {instanceID: 1764}
     - Class: 114
-      Script: {instanceID: 1796}
+      Script: {instanceID: 1852}
     - Class: 114
-      Script: {instanceID: 2064}
+      Script: {instanceID: 2120}
     - Class: 114
-      Script: {instanceID: 2246}
+      Script: {instanceID: 2304}
     - Class: 114
-      Script: {instanceID: 2350}
+      Script: {instanceID: 2408}
     - Class: 114
-      Script: {instanceID: 2380}
+      Script: {instanceID: 2438}
     - Class: 114
-      Script: {instanceID: 2390}
-    - Class: 114
-      Script: {instanceID: 2454}
+      Script: {instanceID: 2448}
     - Class: 114
       Script: {instanceID: 2512}
     - Class: 114
-      Script: {instanceID: 2554}
+      Script: {instanceID: 2570}
     - Class: 114
-      Script: {instanceID: 2572}
+      Script: {instanceID: 2612}
     - Class: 114
-      Script: {instanceID: 2676}
+      Script: {instanceID: 2630}
     - Class: 114
-      Script: {instanceID: 2808}
+      Script: {instanceID: 2734}
     - Class: 114
-      Script: {instanceID: 2816}
+      Script: {instanceID: 2866}
     - Class: 114
-      Script: {instanceID: 2876}
+      Script: {instanceID: 2874}
     - Class: 114
-      Script: {instanceID: 2884}
+      Script: {instanceID: 2934}
     - Class: 114
-      Script: {instanceID: 2928}
+      Script: {instanceID: 2942}
     - Class: 114
-      Script: {instanceID: 3122}
+      Script: {instanceID: 2986}
     - Class: 114
-      Script: {instanceID: 3214}
+      Script: {instanceID: 3180}
     - Class: 114
-      Script: {instanceID: 3306}
+      Script: {instanceID: 3272}
     - Class: 114
-      Script: {instanceID: 3548}
+      Script: {instanceID: 3274}
     - Class: 114
-      Script: {instanceID: 3852}
+      Script: {instanceID: 3366}
     - Class: 114
-      Script: {instanceID: 3928}
+      Script: {instanceID: 3608}
     - Class: 114
-      Script: {instanceID: 4198}
+      Script: {instanceID: 3912}
     - Class: 114
-      Script: {instanceID: 4550}
+      Script: {instanceID: 3988}
     - Class: 114
-      Script: {instanceID: 4682}
+      Script: {instanceID: 4258}
+    - Class: 114
+      Script: {instanceID: 4610}
+    - Class: 114
+      Script: {instanceID: 4742}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -363,7 +366,7 @@ ScriptsOnlyBuild:
     className: CinemachineBrain
   - hash:
       serializedVersion: 2
-      Hash: bb9da3a5ae5ee3184cdd9f25eb1e254c
+      Hash: c40ceea68c345c2ba568ed9c8d40dfc3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Controller
@@ -513,7 +516,7 @@ ScriptsOnlyBuild:
     className: Events
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: cd46fe40e5db401bee7e094e17569641
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -525,7 +528,7 @@ ScriptsOnlyBuild:
     className: StandaloneInputModule
   - hash:
       serializedVersion: 2
-      Hash: 888a0be037263f375c65519c27963cbf
+      Hash: bb430aaa58caf2ab5455ee61069bd974
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CinemachineAnimation
@@ -631,6 +634,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CameraFollow
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LevelProgression
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -969,7 +978,7 @@ ScriptsOnlyBuild:
     className: CinemachineBlendListCamera
   - hash:
       serializedVersion: 2
-      Hash: ca2005e4e804e98a1f1c3700475225f3
+      Hash: ac46d717c724426925909256629b41c7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FireworksSystem
