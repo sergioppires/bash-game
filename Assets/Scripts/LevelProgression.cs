@@ -51,7 +51,10 @@ public class LevelProgression : MonoBehaviour
         float launchratio = (fireworkLaunchRatioBase - (Level * 0.5f));
         float lightRage = lightRangeBase * (Level*10);
         return new Level(speed,launchratio, lightRage);
+    }
 
+    public int GetLevel(){
+        return Level;
     }
 
     

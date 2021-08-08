@@ -7,6 +7,8 @@ public class CinemachineAnimation : MonoBehaviour
 {
 
     [SerializeField] public CinemachineFreeLook cinemachineFreeLook;
+    [SerializeField] private LevelProgression levelProgression;
+
 
     public float yvalue = 0.93f, index = 0, xSpeedInitial = 0.1f, xSpeedGame = 0.05f;
     bool isActive = false;

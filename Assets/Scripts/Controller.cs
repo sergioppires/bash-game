@@ -13,6 +13,8 @@ public class Controller : MonoBehaviour
     [SerializeField] private GameObject leftButton;
     [SerializeField] private TextMeshProUGUI scoreTM;
     [SerializeField] private Animator anim;
+    [SerializeField] private LevelProgression level;
+
     bool isLeftReadyToPress = false, isRightReadyToPress = false;
 
     int score = 0;
@@ -45,16 +47,10 @@ public class Controller : MonoBehaviour
      }
     public void LeftButtonClicked(){
         Events.current.PressLeftButton();
-        if(isLeftReadyToPress){
-            Debug.Log("Deu certo");
-        }
     }
 
     public void RightButtonClicked(){
         Events.current.PressRightButton();
-        if(isRightReadyToPress){
-            Debug.Log("Deu certo");
-        }
     }
 
     void EmitNote(Fireworks fireworks){     
@@ -68,7 +64,7 @@ public class Controller : MonoBehaviour
     }
 
     public void Score(bool isLeft){
-        score += 10;
+        score += 10 * level.GetLevel();
         scoreTM.text = score.ToString();
     }
     public void Fail(){

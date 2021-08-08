@@ -64,7 +64,7 @@ public class FireworksSystem : MonoBehaviour
     {
         Fireworks currentFirework = configureFireworks(isLeft);
         Events.current.EmitFireworks(currentFirework);
-        configureFireworks(currentFirework);
+        alterFireworksStatus(currentFirework);
         EmitFireworks(currentFirework);
     }
 
@@ -99,17 +99,26 @@ public class FireworksSystem : MonoBehaviour
         }
         successRightFireworks = false;
     }
-    private void configureFireworks(Fireworks currentFirework)
+    private void alterFireworksStatus(Fireworks currentFirework)    
     {
+        float explodeSize = 0.5f * (levelProgression.GetLevel());     
+
         if (currentFirework.isLeft)
         {
-            particleSystemLeft.startLifetime = currentFirework.speed;
+            //particleSystemLeft.startLifetime = currentFirework.speed;
             particleSystemLeft.startColor = currentFirework.color;
+            goodExplosionLeft.startSpeed = 1 * levelProgression.GetLevel();
+            goodExplosionLeft.startColor = currentFirework.color;
+            goodExplosionLeft.startSize = explodeSize;
+
         }
         else
         {
-            particleSystemRight.startLifetime = currentFirework.speed;
+            //particleSystemRight.startLifetime = currentFirework.speed;
             particleSystemRight.startColor = currentFirework.color;
+            goodExplosionRight.startSpeed = 1 * levelProgression.GetLevel();
+            goodExplosionRight.startColor = currentFirework.color;
+            goodExplosionRight.startSize = explodeSize;
         }
     }
 
